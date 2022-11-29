@@ -361,7 +361,6 @@ export class FTPClient implements Deno.Closer {
 
         let parsed = Regexes.mdtmReply.exec(res.message);
         if (parsed && parsed.groups) {
-            console.log(parsed.groups);
             let year = parseInt(parsed.groups.year);
             let month = parseInt(parsed.groups.month);
             let day = parseInt(parsed.groups.day);
