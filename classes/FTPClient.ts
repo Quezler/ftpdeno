@@ -509,7 +509,9 @@ export class FTPClient implements Deno.Closer {
             isDirectory: false,
             size: 0
         };
+        console.log(JSON.stringify(input, null, 4)); 
         const data = input.trim().split(";");
+        console.log(JSON.stringify(data, null, 4)); 
         let filename = data.pop();
         if (filename) {
             // Remove initial space
