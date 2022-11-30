@@ -469,9 +469,9 @@ export class FTPClient implements Deno.Closer {
         }
 
         const listing = await this.commandWithData(Commands.ExList, dirName);
-        Deno.writeAllSync(Deno.stdout, JSON.stringify(listing));
+        console.log(JSON.stringify(listing, null, 4)); 
         const entries = listing.trimEnd().split("\r\n");
-        Deno.writeAllSync(Deno.stdout, JSON.stringify(entries));
+        console.log(JSON.stringify(entries, null, 4)); 
         return entries.map(e => this.parseMLST(e));
     }
 
