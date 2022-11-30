@@ -470,6 +470,7 @@ export class FTPClient implements Deno.Closer {
 
         const listing = await this.commandWithData(Commands.ExList, dirName);
         const entries = listing.trimEnd().split("\r\n");
+        console.log(entries);
         return entries.map(e => this.parseMLST(e));
     }
 
@@ -508,6 +509,7 @@ export class FTPClient implements Deno.Closer {
             size: 0
         };
         const data = input.trim().split(";");
+        console.log(data);
         let filename = data.pop();
         if (filename) {
             // Remove initial space
